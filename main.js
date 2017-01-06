@@ -10,7 +10,7 @@ function decrypt(num,str){
          return "Please input something";
     }
     for (var i = 0; i < str.length; i++) {
-        if (str[i] === ' ') {
+        if (str[i] === ' '||str[i] === ','||str[i] === '.') {
             temp.push(' ');
             continue;
         }
