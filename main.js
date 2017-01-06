@@ -44,7 +44,7 @@ function encrypt(num,str){
 	            }
 	            return temp.join("");
             };
-            return "Input not valid";
+            return "Input not valid,English words only";
 }
 $(".encrypt").click(function(){
 	var code = $(".num").val();
