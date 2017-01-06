@@ -11,7 +11,7 @@ function decrypt(num,str){
     }
     for (var i = 0; i < str.length; i++) {
         if (str[i] === ' '||str[i] === ','||str[i] === '.') {
-            temp.push(' ');
+            temp.push(str[i]);
             continue;
         }
         temp.push(interpreter[(str.charCodeAt(i) - code - 65 + 26) % 26]);
@@ -32,12 +32,12 @@ function encrypt(num,str){
 			// 要加密的文本%%
 	        var str = str;
 	        var temp = [];
-	        var match = /^[A-Za-z\s]+$/;
+	        var match = /^[A-Za-z\s,.]+$/;
 	        if (str.match(match)) {
 	            str = str.toLocaleUpperCase();
 	            for (var i = 0; i < str.length; i++) {
-	                if (str[i] === ' ') {
-	                    temp.push(' ');
+	                if (str[i] === ' '||str[i] === ','||str[i] === '.') {
+	                    temp.push(str[i]);
 	                    continue;
 	                }
 	                temp.push(en_arr[str.charCodeAt(i) - 65]);
