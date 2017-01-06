@@ -59,3 +59,7 @@ $(".decrypt").click(function(){
 	result = decrypt(code,str);
 	$(".show").text(result);
 });
+setInterval(function() {
+    var now = (new Date()).toLocaleString();
+    $('#showtime').text(now);
+}, 1000);
