@@ -6,6 +6,7 @@ function decrypt(num,str){
 			'H', 'I', 'J', 'K', 'L', 'M', 'N',
 			'O', 'P', 'Q', 'R', 'S', 'T',
 			'U', 'V', 'W', 'X', 'Y', 'Z'];
+
     if (!str) {
          return "Please input something";
     }
@@ -14,6 +15,10 @@ function decrypt(num,str){
             temp.push(str[i]);
             continue;
         }
+        if(str[i] >= 0 && str[i] <= 9){
+			temp.push(str[i]^num);
+        	continue;
+		}
         temp.push(interpreter[(str.charCodeAt(i) - code - 65 + 26) % 26]);
     }
     var result = temp.join("");
@@ -32,10 +37,14 @@ function encrypt(num,str){
 			// 要加密的文本%%
 	        var str = str;
 	        var temp = [];
-	        var match = /^[A-Za-z\s,.]+$/;
+	        var match = /^[A-Za-z0-9\s,.]+$/;
 	        if (str.match(match)) {
 	            str = str.toLocaleUpperCase();
 	            for (var i = 0; i < str.length; i++) {
+	            	if(str[i] >= 0 && str[i] <= 9){
+	         			temp.push(str[i]^num);
+	                    continue;
+	            	}
 	                if (str[i] === ' '||str[i] === ','||str[i] === '.') {
 	                    temp.push(str[i]);
 	                    continue;
@@ -44,7 +53,7 @@ function encrypt(num,str){
 	            }
 	            return temp.join("");
             };
-            return "Input not valid,English words only";
+            return "Input not valid, English words or number only";
 }
 $(".encrypt").click(function(){
 	var code = $(".num").val();
