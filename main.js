@@ -69,6 +69,8 @@ $(".decrypt").click(function(){
 	$(".show").text(result);
 });
 setInterval(function() {
+	var str = "Trans";
+	var showstr = str.substring(0,parseInt(Math.random()*5,10));
     var now = (new Date()).toLocaleString();
-    $('#showtime').text(now);
+    $('#showtime').text(now+"   "+showstr);
 }, 1000);
