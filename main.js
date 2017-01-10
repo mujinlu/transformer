@@ -15,8 +15,9 @@ function decrypt(num,str){
             temp.push(str[i]);
             continue;
         }
-        if(str[i] >= 0 && str[i] <= 9){
-			temp.push(str[i]^num);
+        if(((str[i] >= 0) && (str[i] <= 9))||(str[i]>='a')&&(str[i]<='f')){
+        	var res = parseInt(str[i],16)^num;
+			temp.push(res);
         	continue;
 		}
         temp.push(interpreter[(str.charCodeAt(i) - code - 65 + 26) % 26]);
@@ -42,7 +43,8 @@ function encrypt(num,str){
 	            str = str.toLocaleUpperCase();
 	            for (var i = 0; i < str.length; i++) {
 	            	if(str[i] >= 0 && str[i] <= 9){
-	         			temp.push(str[i]^num);
+	            		var res = str[i]^num;
+	         			temp.push(res.toString(16));
 	                    continue;
 	            	}
 	                if (str[i] === ' '||str[i] === ','||str[i] === '.') {
