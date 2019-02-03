@@ -16,7 +16,7 @@ function decrypt(num,str){
         }
         temp.push(interpreter[(str.charCodeAt(i) - code - 65 + 26) % 26]);
     }
-    var result = temp.join("");
+    var result = temp.join(" ");
     result = result.toLocaleLowerCase();
     return result;
 }
